@@ -1,0 +1,23 @@
+name: Test
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts
+      - run: npm install -g --ignore-scripts @earendil-works/pi-coding-agent@1.0.0
+      - run: PI_SDK_ENTRY="$(npm root -g)/@earendil-works/pi-coding-agent/dist/index.js" npm test
+      - run: npm pack --dry-run

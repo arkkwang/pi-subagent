@@ -1,0 +1,50 @@
+{
+  "name": "@arkkwang/pi-subagent",
+  "version": "0.1.0",
+  "type": "module",
+  "pi": {
+    "extensions": [
+      "./index.js"
+    ]
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    }
+  },
+  "description": "Sub-agent sessions for the official Pi SDK",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arkkwang/pi-subagent.git"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "license": "MIT",
+  "author": "arkkwang",
+  "files": [
+    "index.js",
+    "extension.mjs",
+    "manager.mjs",
+    "sessions.mjs",
+    "README.zh-CN.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/arkkwang/pi-subagent#readme",
+  "bugs": {
+    "url": "https://github.com/arkkwang/pi-subagent/issues"
+  },
+  "keywords": [
+    "pi-agent",
+    "ai",
+    "pi-package"
+  ]
+}
